@@ -3,11 +3,11 @@ import json
 import time
 from pathlib import Path
 
-from request import print_json
+from lib.request import print_json
 
-from api_client import TasksAPIClient
-from data_loader import make_project_payload
-from utils import (
+from lib.api_client import TasksAPIClient
+from lib.data_loader import make_project_payload
+from lib.utils import (
     load_training_tasks,
     make_training_payload,
     get_task_list,
@@ -34,14 +34,14 @@ def log_operation(operation_id, client):
                 print("❌ Ошибка на шаге:", step.get("input"))
                 print("Детали ошибки:", step.get("output"))
 
-def create_project(requester) -> dict:
+def create_project(requester, dir) -> dict:
     """
     Создает проект, пул и задания на основе файлов из data_dir.
     Возвращает словарь с созданными сущностями.
     """
     client = TasksAPIClient(requester)
 
-    project = client.create_project(make_project_payload())
+    project = client.create_project(make_project_payload(dir))
     project_id = project["id"]
     print("Project done")
 
@@ -49,7 +49,7 @@ def create_project(requester) -> dict:
     training_id = training["id"]
     print("Traning done")
 
-    operation = client.create_tasks_async(get_task_list(training_id))
+    operation = client.create_tasks_async(get_task_list(training_id, dir))
     operation_id = operation["id"]
 
     log_operation(operation_id, client)
@@ -58,7 +58,7 @@ def create_project(requester) -> dict:
     # responce = client.get_pool(pool_id)
     # print_json(responce)
 
-    with open("data/quality_pool_spec.json") as f:
+    with open(Path(dir + "/quality_pool_spec.json")) as f:
         spec = json.load(f)
     exam = client.create_pool_from_spec(build_pool_payload_from_spec(
         spec,

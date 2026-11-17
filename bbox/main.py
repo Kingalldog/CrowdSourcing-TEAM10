@@ -1,13 +1,16 @@
+import sys
 import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from pathlib import Path
 from dotenv import load_dotenv
 
-from request import Requester
-from create_project import create_project
-from config import BASE_URL
+from lib.request import Requester
+from lib.create_project import create_project
+from lib.config import BASE_URL
 
 load_dotenv()
 TOKEN = os.environ.get("TOKEN")
-
+DATA_DIR = "./data"
 def run_create_project():
     """Обёртка: выполняет create_project и печатает результат/ошибку.
     """
@@ -16,7 +19,7 @@ def run_create_project():
         return 
     try:
         requester = Requester(TOKEN, BASE_URL)
-        result = create_project(requester)
+        result = create_project(requester, DATA_DIR)
     except Exception as e:
         print(f"ОШИБКА: {type(e).__name__}: {e}")
         return

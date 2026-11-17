@@ -1,14 +1,13 @@
 import json
 from pathlib import Path
 
-from utils import make_view_spec
-from config import DATA_DIR
+from lib.utils import make_view_spec
 
 
 class DataLoader:
     """Читает и валидирует файлы из директории проекта."""
 
-    def __init__(self, data_dir: str | Path = "./data"):
+    def __init__(self, data_dir):
         self.data_path = Path(data_dir)
 
     def load_all(self) -> dict:
@@ -35,8 +34,8 @@ class DataLoader:
             "view_spec": make_view_spec(view),
         }
 
-def make_project_payload():
-    loader = DataLoader(DATA_DIR)
+def make_project_payload(dir):
+    loader = DataLoader(dir)
     data = loader.load_all()
 
     project_payload = {

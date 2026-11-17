@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-from config import DATA_DIR, TSV_TRAIN
+from lib.config import TSV_TRAIN
 
 def make_view_spec(view: dict) -> dict:
     return {
@@ -107,9 +107,9 @@ def load_training_tasks(tsv_path: str | Path, training_id: str) -> list[dict]:
         raise ValueError(f"В файле {tsv_path} не найдено ни одного тренировочного задания.")
     return tasks
 
-def get_task_list(training_id):
+def get_task_list(training_id, dir):
     return load_training_tasks(
-        TSV_TRAIN,
+        Path(dir + "/" + TSV_TRAIN),
         training_id=training_id,
     )
 

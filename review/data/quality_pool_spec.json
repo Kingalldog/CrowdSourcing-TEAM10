@@ -1,0 +1,78 @@
+{
+  "id": "6867304",
+  "project_id": "11806",
+  "private_name": "Bbox: выделение бабочек",
+  "may_contain_adult_content": true,
+  "may_contain_nda": false,
+  "will_expire": "2027-11-16T10:23:45.056",
+  "auto_close_after_complete_delay_seconds": 0,
+  "reward_per_assignment": 2.0,
+  "metadata": {},
+  "assignment_max_duration_seconds": 600,
+  "auto_accept_solutions": true,
+  "auto_accept_period_day": 21,
+  "assignments_issuing_config": {
+    "issue_task_suites_in_creation_order": false
+  },
+  "quality_control": {
+    "training_requirement": {
+      "training_passing_skill_value": 100,
+      "training_pool_id": "6867288"
+    },
+    "configs": [
+      {
+        "collector_config": {
+          "type": "ASSIGNMENT_SUBMIT_TIME",
+          "uuid": "2ec3ebd0-475d-4800-b359-7f7ff8e91aa3",
+          "parameters": {
+            "fast_submit_threshold_seconds": 30,
+            "history_size": 5
+          }
+        },
+        "rules": [
+          {
+            "conditions": [
+              {
+                "key": "fast_submitted_count",
+                "operator": "GTE",
+                "value": 4
+              }
+            ],
+            "action": {
+              "type": "RESTRICTION_V2",
+              "parameters": {
+                "duration": 1,
+                "scope": "PROJECT",
+                "duration_unit": "DAYS"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "mixer_config": {
+    "real_tasks_count": 10,
+    "golden_tasks_count": 0,
+    "training_tasks_count": 0,
+    "min_real_tasks_count": 1,
+    "force_last_assignment": false
+  },
+  "defaults": {
+    "default_overlap_for_new_task_suites": 1
+  },
+  "priority": 0,
+  "eligible_audience": "ANY",
+  "owner": {
+    "id": "a7199e7c9f7759eec6f97851035a1a1b",
+    "myself": true,
+    "company_id": "151"
+  },
+  "type": "REGULAR",
+  "status": "CLOSED",
+  "created": "2026-11-16T10:33:07.617",
+  "speed_quality_balance": {
+    "percent": 91,
+    "type": "TOP_PERCENTAGE_BY_QUALITY"
+  }
+}

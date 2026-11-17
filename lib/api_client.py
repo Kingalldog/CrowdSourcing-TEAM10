@@ -1,4 +1,4 @@
-from request import Requester
+from lib.request import Requester
 
 class TasksAPIClient:
     """Клиент для работы с API Яндекс.Заданий."""
