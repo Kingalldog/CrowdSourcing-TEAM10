@@ -1,0 +1,10 @@
+{
+  "winner": "grounding_base_contrast",
+  "thresholds": {
+    "grounding_tiny": 0.35,
+    "grounding_base": 0.4,
+    "owlv2_base": 0.425,
+    "qwen4bit": 0.25,
+    "grounding_base_contrast": 0.225
+  }
+}
