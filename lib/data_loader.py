@@ -34,12 +34,12 @@ class DataLoader:
             "view_spec": make_view_spec(view),
         }
 
-def make_project_payload(dir):
+def make_project_payload(dir, public_name="Bbox: выделение бабочек"):
     loader = DataLoader(dir)
     data = loader.load_all()
 
     project_payload = {
-        "public_name": "Bbox: выделение бабочек",
+        "public_name": public_name,
         "public_description": "",
         "public_instructions": data["instructions"],
         "task_spec": {

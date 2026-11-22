@@ -1,19 +1,4 @@
-import json
-import os
-import time
-from datetime import datetime, timedelta, timezone
-from pathlib import Path
-
-import pandas as pd
 import requests
-from dotenv import load_dotenv
-from huggingface_hub import hf_hub_download
-from IPython.display import HTML, display
-
-
-def print_json(data):
-    """Красивый вывод JSON."""
-    print(json.dumps(data, ensure_ascii=False, indent=2))
 
 
 class Requester:
