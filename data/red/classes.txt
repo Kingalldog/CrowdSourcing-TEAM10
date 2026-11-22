@@ -1,9 +1,0 @@
-classes:
-    - butterfly_clear Бабочка хорошо видна (чёткая, крупная, не сливается с фоном)
-    - multiple_butterflies На изображении несколько бабочек
-    - butterfly_camouflaged Бабочка сливается с фоном
-    - shadow  Видна тень бабочки
-    - butterfly_small Бабочка показана маленьким планом
-    - with_other_insect
-    - not_butterfly_animal Животное, но не бабочка
-    - not_butterfly_plant Растение (цветок, лист, трава)
