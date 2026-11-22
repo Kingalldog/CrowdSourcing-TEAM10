@@ -1,17 +1,15 @@
 {
-  "result": {
-    "type": "array_json",
+  "verdict": {
+    "type": "string",
     "hidden": false,
-    "required": false
-  },
-  "photo_not_loaded": {
-    "type": "boolean",
-    "hidden": false,
-    "required": false
-  },
-  "no_object_on_photo": {
-    "type": "boolean",
-    "hidden": false,
-    "required": false
+    "required": true,
+    "allowed_values": [
+      "accept",
+      "missing",
+      "extra",
+      "boundary",
+      "uncertain",
+      "load_error"
+    ]
   }
 }

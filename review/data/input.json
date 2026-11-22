@@ -1,7 +1,17 @@
 {
-	"image": {
-		"type": "url",
-		"hidden": false,
-		"required": true
-	}
-}
+      "boxes": {
+        "type": "array_json",
+        "hidden": false,
+        "required": false
+      },
+      "image": {
+        "type": "url",
+        "hidden": false,
+        "required": true
+      },
+      "candidate_id": {
+        "type": "string",
+        "hidden": false,
+        "required": true
+      }
+    }

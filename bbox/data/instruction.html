@@ -1,113 +1,33 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Простая инструкция: обвести бабочек рамками</title>
-<style>
-  body {
-    margin: 0;
-    padding: 24px 16px 48px;
-    background: #f7f8fa;
-    color: #1f2430;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+<h2>Выделите всех взрослых дневных бабочек</h2>
 
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-  }
+<p>Осмотрите весь кадр. Обведите каждую бабочку отдельным прямоугольником. Подведите стороны к крайним видимым точкам крыльев, тела, усиков и лапок. Если часть бабочки закрыта или обрезана краем фото, обведите видимую часть. Тень оставьте за рамкой.</p>
 
-  .card {
-    background: #ffffff;
-    border: 1px solid #e2e6ee;
-    border-radius: 12px;
-    padding: 22px 24px;
-    margin-bottom: 18px;
-  }
+<p>Гусеницы, куколки и другие насекомые в разметку не входят. Если сомневаетесь, увеличьте фото и проверьте, видна ли  бабочка. Обведите только тех бабочек, которых удалось распознать.</p>
 
-  h1 {
-    font-size: 24px;
-    margin: 0 0 16px;
-    color: #16305e;
-  }
+<ul>
+  <li>Нашли бабочек — нарисуйте рамки. Обе галочки оставьте пустыми.</li>
+  <li>Фото открылось, и ни одной бабочки вы не нашли — выберите <strong>«На фото нет бабочек»</strong>.</li>
+  <li>Фото не открылось — выберите <strong>«Фотография не загрузилась»</strong>.</li>
+</ul>
 
-  h2 {
-    font-size: 19px;
-    margin: 0 0 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e8f0fe;
-    color: #16305e;
-  }
+<h2>Примеры</h2>
 
-  p { margin: 0 0 12px; }
-  p:last-child { margin-bottom: 0; }
+<h3>Одна бабочка</h3>
+<p>Включите усики и кончики крыльев в одну рамку.</p>
+<p><img alt="Одна бабочка" src="https://i.ibb.co/nqkNm9wQ/image.png" /></p>
 
-  ul, ol {
-    margin: 0 0 12px;
-    padding-left: 22px;
-  }
+<h3>Две бабочки</h3>
+<p>У каждой бабочки своя рамка. Рамки могут пересекаться. Общая рамка на двоих будет ошибкой.</p>
+<p><img alt="Две бабочки" src="https://i.ibb.co/wrZTJd7n/image.png" /></p>
 
-  li { margin-bottom: 8px; }
-  li:last-child { margin-bottom: 0; }
+<h3>Бабочка за листьями</h3>
+<p>Крыло видно и над листом, и под ним. Одна рамка охватывает обе видимые части. Продолжать её до предполагаемого края скрытого крыла не нужно.</p>
+<p><img alt="Бабочка за листьями" src="https://i.ibb.co/G4wNtd4n/image.png" /></p>
 
-  .highlight {
-    background: #e8f0fe;
-    border-left: 4px solid #2f6fed;
-    border-radius: 6px;
-    padding: 12px 16px;
-    margin: 14px 0;
-  }
+<h3>Похожее насекомое</h3>
+<p>Это не бабочка. На этом фото выберите «На фото нет объектов».</p>
+<p><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/676589729/medium.jpg" width="500" alt="Похожее насекомое" style="max-width:100%;height:auto" /></p>
 
-  .warning {
-    background: #fff7e6;
-    border-left: 4px solid #b45309;
-    border-radius: 6px;
-    padding: 12px 16px;
-    margin: 14px 0;
-  }
-
-  .danger {
-    background: #fdecec;
-    border-left: 4px solid #b91c1c;
-    border-radius: 6px;
-    padding: 12px 16px;
-    margin: 14px 0;
-  }
-
-  .highlight p:last-child,
-  .warning p:last-child,
-  .danger p:last-child {
-    margin-bottom: 0;
-  }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <div class="card">
-    <h1>Что нужно сделать</h1>
-    <p>Вам дадут <strong>фотографию</strong>. На ней нужно найти <strong>всех бабочек</strong> и выделить каждую <strong>прямоугольной рамкой</strong>.</p>
-    <p>Если бабочек на фотографии нет — ничего не выделяйте</p>
-  </div>
-
-  <div class="card">
-    <h2>Правила разметки</h2>
-
-    <ol>
-      <li><strong>Одна бабочка — одна рамка.</strong> Даже если бабочки перекрываются, каждая получает свою отдельную рамку.</li>
-      <li><strong>Рамка плотно охватывает бабочку.</strong> Внутри рамки должны быть крылья, тело, усики и лапки. Лишний фон вокруг не нужен.</li>
-      <li><strong>Если бабочка видна не полностью</strong> (закрыта листом, веткой или обрезана краем фото) — обводите только видимую часть. Не дорисовывайте то, чего не видно.</li>
-      <li><strong>Размечаются только взрослые бабочки.</strong> Гусеницы, куколки и личинки не обводятся. Дневные и ночные бабочки — без разницы, все считаются.</li>
-      <li><strong>Спорные случаи</strong> (сильно размыто, виден только фрагмент, непонятно, бабочка это или нет) — отметьте для дополнительного разбора.</li>
-    </ol>
-
-    <div class="warning">
-      <p><strong>Важно:</strong> если фотография не загрузилась или произошла ошибка — отметьте специальную ячейку "Фотография не загрузилась".</p>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+<h3>Бабочек нет</h3>
+<p>На фото только стебли и бутоны. Оставьте фото без рамок и выберите «На фото нет объектов».</p>
+<p><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/372196440/medium.jpeg" width="500" alt="Бабочек нет" style="max-width:100%;height:auto" /></p>

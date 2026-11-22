@@ -3,80 +3,68 @@
     "type": "view.list",
     "items": [
       {
-        "type": "helper.if",
-        "condition": {
-          "type": "condition.equals",
-          "data": {
-            "type": "data.output",
-            "path": "photo_not_loaded"
-          },
-          "to": false
+        "type": "field.image-annotation",
+        "image": {
+          "type": "data.input",
+          "path": "image"
         },
-        "then": {
-          "type": "field.image-annotation",
-          "image": {
+        "data": {
+          "type": "data.internal",
+          "path": "display_boxes",
+          "default": {
             "type": "data.input",
-            "path": "image"
-          },
-          "fullHeight": true,
-          "data": {
-            "type": "data.output",
-            "path": "result"
-          },
-          "shapes": {
-            "rectangle": true
-          },
-          "validation": {
-  "type": "condition.any",
-  "conditions": [
-    {
-      "type": "condition.required",
-      "data": {
-        "type": "data.output",
-        "path": "result"
-      }
-    },
-    {
-      "type": "condition.equals",
-      "data": {
-        "type": "data.output",
-        "path": "no_object_on_photo"
-      },
-      "to": true
-    }
-  ]
-}
-        }
-      },
-      {
-        "type": "helper.if",
-        "condition": {
-          "type": "condition.equals",
-          "data": {
-            "type": "data.output",
-            "path": "photo_not_loaded"
-          },
-          "to": false
-        },
-        "then": {
-          "type": "field.checkbox",
-          "preserveFalse": true,
-          "label": "На фото нет объектов",
-          "hint": "Отметьте, если выделять нечего.",
-          "data": {
-            "type": "data.output",
-            "path": "no_object_on_photo"
+            "path": "boxes"
           }
+        },
+        "disabled": true,
+        "fullHeight": true,
+        "shapes": {
+          "rectangle": true
         }
       },
       {
-        "type": "field.checkbox",
-        "preserveFalse": true,
-        "label": "Фотография не загрузилась",
-        "hint": "Отметьте, если изображение не открывается.",
+        "type": "field.radio-group",
+        "label": "Как размечен весь кадр?",
         "data": {
           "type": "data.output",
-          "path": "photo_not_loaded"
+          "path": "verdict"
+        },
+        "options": [
+          {
+            "value": "accept",
+            "label": "Верно — все бабочки обведены или их действительно нет"
+          },
+          {
+            "value": "missing",
+            "label": "Пропущена бабочка"
+          },
+          {
+            "value": "extra",
+            "label": "Лишняя рамка или один объект обведён дважды"
+          },
+          {
+            "value": "boundary",
+            "label": "Неточная рамка — срезает видимую часть или захватывает много фона"
+          },
+          {
+            "value": "uncertain",
+            "label": "Нужен разбор — объект невозможно уверенно определить"
+          },
+          {
+            "value": "load_error",
+            "label": "Фотография не загрузилась"
+          }
+        ],
+        "validation": {
+          "type": "condition.required",
+          "hint": "Выберите один ответ."
+        }
+      },
+      {
+        "type": "view.text",
+        "content": {
+          "type": "data.input",
+          "path": "candidate_id"
         }
       }
     ]
@@ -89,14 +77,55 @@
       }
     },
     {
-      "type": "plugin.field.image-annotation.hotkeys",
-      "labels": ["1", "2", "3", "4", "5"],
-      "modes": {
-        "select": "q",
-        "rectangle": "e"
+      "1": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "verdict"
+        },
+        "payload": "accept"
       },
-      "confirm": "a",
-      "cancel": "s"
+      "2": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "verdict"
+        },
+        "payload": "missing"
+      },
+      "3": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "verdict"
+        },
+        "payload": "extra"
+      },
+      "4": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "verdict"
+        },
+        "payload": "boundary"
+      },
+      "5": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "verdict"
+        },
+        "payload": "uncertain"
+      },
+      "6": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "verdict"
+        },
+        "payload": "load_error"
+      },
+      "type": "plugin.hotkeys"
     }
   ]
 }
